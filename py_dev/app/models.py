@@ -14,11 +14,6 @@ class Category(models.Model):
     name = models.CharField(max_length=30, null=False, blank=False)
 
 
-class Salesman(models.Model):
-    name = models.CharField(max_length=30, null=False, blank=False)
-    discription = models.CharField(max_length=30, null=True)
-
-
 class Raiting(models.Model):
     star = models.IntegerField()
 

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import *
 
 
+
 def main(request):
     # if request.method == "POST":
     #     user = Users.objects.create(name=request.POST['name'],
