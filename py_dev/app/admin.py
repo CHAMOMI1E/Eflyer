@@ -43,7 +43,7 @@ admin.site.register(Item, ItemAdmin)
 
 
 class SalesmansAdmin(admin.ModelAdmin):
-    list_display = ('name', 'discription', 'comments', 'items')
+    list_display = ('name', 'discription', 'comments',)
     list_display_links = ('name', 'discription',)
 
 

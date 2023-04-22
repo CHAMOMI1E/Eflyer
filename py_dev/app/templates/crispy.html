@@ -1,18 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}
+{% endblock %}
+{% block content %}
+
 {% load crispy_forms_tags %}
+<div class="container">
 
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form | crispy }}
+
         <div class="col-auto">
             <button type="submit" class="btn btn-primary mb-3">Добавить</button>
         </div>
     </form>
-</body>
-</html>
+</div>
+{% endblock %}
+{% block footer %}
+{% endblock %}
