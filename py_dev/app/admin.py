@@ -3,8 +3,8 @@ from .models import *
 
 
 class UsersAdmin(admin.ModelAdmin):
-    list_display = ('name', 'age')
-    list_display_links = ('name',)
+    list_display = ('id', 'name', 'age')
+    list_display_links = ('id', 'name', 'age')
 
 
 admin.site.register(Users, UsersAdmin)
@@ -51,8 +51,8 @@ admin.site.register(Salesmans, SalesmansAdmin)
 
 
 class BasketAdmin(admin.ModelAdmin):
-    list_display = ('items', 'cost',)
-    list_display_links = ('items', 'cost',)
+    list_display = ('cost',)
+    list_display_links = ('cost',)
 
 
 admin.site.register(Basket, BasketAdmin)

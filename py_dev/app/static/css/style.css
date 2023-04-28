@@ -495,7 +495,7 @@ a:hover {
 .buynow_bt {
     width: 170px;
     margin: 0 auto;
-    padding-top: 30px;
+    padding-top: -30px;
 }
 
 .buynow_bt a {

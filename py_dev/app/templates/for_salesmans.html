@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block title %}
+{% load static %}
+<div style="    width: 100%;
+    float: left;
+    height: auto;
+    background-size: 100%;
+    background-repeat: no-repeat;">
+    <!-- header top section start -->
+    <div class="container">
+        <div class="header_section_top">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="custom_menu">
+                        <ul>
+                            <li><a href="{% url 'main' %}">For Users</a></li>
+                            {% if request.user.is_authenticated %}
+                            <li><a href="{% url 'user' %}">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                                <span class="padding_10">{{user.username}}</span></a>
+                                /
+                                <a href="{% url 'logout' %}">
+                                    Log out</a>
+                            </li>
+
+                            {% else %}
+                            <li><a href="{% url 'register' %}">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                                <span class="padding_10">Sign in</span></a>
+                                /
+                                <a href="{% url 'login' %}">
+                                    Sign up</a>
+                            </li>
+                            {% endif %}
+                            <!--                           <li><a href="#">Gift Ideas</a></li>-->
+                            <!--                           <li><a href="#">New Releases</a></li>-->
+                            <!--                           <li><a href="#">Today's Deals</a></li>-->
+                            <!--                           <li><a href="../../admin">Customer Service</a></li>-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- header top section start -->
+
+
+    <!-- banner section start -->
+        <div class="container">
+            <div class="buynow_bt"><a href="{% url 'add_item' %}">Add item</a></div>
+
+    </div>
+    <!-- banner section end -->
+</div>
+
+{% endblock %}
+{% block content %}
+
+<!--<div class="buynow_bt"><a href="{% url 'main' %}">Add item</a></div>-->
+
+
+<div class="main-container">
+    <div class="fashion_section_2">
+        <div class="row">
+            <div class="col-lg-4 col-sm-4">
+                <div class="box_main">
+                    <h4 class="shirt_text">Man T -shirt</h4>
+                    <p class="price_text">Price <span style="color: #262626;">$ 30</span></p>
+                    <div class="tshirt_img"><img src="{% static 'images/tshirt-img.png' %}"></div>
+                    <div class="btn_main">
+                        <div class="buy_bt"><a href="#">Buy Now</a></div>
+                        <div class="seemore_bt"><a href="#">See More</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block footer %}
+
+{% endblock %}

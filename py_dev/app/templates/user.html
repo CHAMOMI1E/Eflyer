@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="container">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp" value="{{user.name}}">
+
+            </div>
+        </div>
+        <div class="container">
+            <div class="mb-3">
+                <label for="age" class="form-label">Age</label>
+                <input type="text" class="form-control" name="age" id="age" value="{{user.age}}">
+            </div>
+        </div>
+        <div class="container">
+            <div class="mb-3">
+                <label for="adress" class="form-label">Adress</label>
+                <input type="text" class="form-control" name="adress" id="adress" value="{{user.adress}}">
+            </div>
+        </div>
+
+        <div class="container">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+
+</div>
+{% endblock %}
+{% block footer  %}
+{% endblock %}
