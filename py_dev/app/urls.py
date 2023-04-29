@@ -10,6 +10,8 @@ urlpatterns = [
     path('login/', LoginUser.as_view(), name='login'),
     path('logout/', logout_user, name='logout'),
     # path('add_user/', add_user.as_view(), name='add_user'),
-    path('for_salesman/', for_salesman, name='for_salesman'),
-
+    # path('for_salesman/', for_salesman, name='for_salesman'),
+    path('RegisterSalesman/', RegisterSalesman.as_view(), name='RegisterSalesman'),
+    path('for_salesman/', for_salesman.as_view(), name='for_salesman'),
+    path('for_salesman/<int:item_id>/', show_item, name="show_item"),
 ]

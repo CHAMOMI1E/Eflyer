@@ -1,6 +1,7 @@
 from django.contrib.auth import login, logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.views import LoginView
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, FormView
@@ -29,12 +30,17 @@ def sts(request):
     return render(request, 'in.html')
 
 
-# class add_item(CreateView):
-#     template_name = "crispy.html"
-#     model = Item
-#     fields = ['name', 'quantity', 'discription', 'category']
-#     success_url = reverse_lazy("add_item")
-#     context_object_name = "add_item"
+class for_salesman(ListView):
+    template_name = "for_salesmans.html"
+    model = Item
+    context_object_name = "Items"
+    paginate_by = 9
+
+
+def show_item(request, item_id):
+    item = Item.objects.get(id=item_id)
+    return render(request, 'item.html', {'item': item})
+
 
 class add_item(FormView):
     template_name = 'crispy.html'
@@ -42,9 +48,12 @@ class add_item(FormView):
     success_url = '/for_salesman'
 
     def form_valid(self, form):
-        user = User.objects.get(username=self.request.user.usrname)
+        new_item = form.save()
+        item = Item.objects.get(id=new_item.id)
+        user = User.objects.get(username=self.request.user.username)
         sale = Salesmans.objects.get(id_user=user)
-        sale.items.create(ItemForm)
+        sale.items.add(item)
+        return redirect('for_salesman')
 
 
 class RegisterUserSale(CreateView):
@@ -73,10 +82,6 @@ class LoginUser(LoginView):
         return reverse_lazy("main")
 
 
-def for_salesman(request):
-    return render(request, 'for_salesmans.html')
-
-
 class RegisterUser(CreateView):
     form_class = UserCreationForm
     template_name = "crispy.html"
@@ -95,6 +100,23 @@ class RegisterUser(CreateView):
         new_user.save()
         return redirect('main')
         # return redirect('add_user')
+
+
+class RegisterSalesman(CreateView):
+    form_class = UserCreationForm
+    template_name = "crispy.html"
+    success_url = reverse_lazy("login")
+
+    def form_valid(self, form):
+        user = form.save()
+        user.is_staff = True
+
+        user.save()
+
+        login(self.request, user)
+        new_sale = Salesmans(id_user=user)
+        new_sale.save()
+        return redirect('for_salesman')
 
 
 class LoginUser(LoginView):

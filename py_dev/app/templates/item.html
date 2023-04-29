@@ -1,0 +1,27 @@
+{% extends 'for_salesmans.html' %}
+{% block sale %}
+{% load static %}
+
+<div class="fashion_section_2">
+    <div class="row">
+        <div class="col-lg-4 col-sm-4">
+            <div class="box_main">
+                <div class="tshirt_img"><img src="{% static 'images/tshirt-img.png' %}"></div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-4">
+            <div class="box_main">
+                <div class="box_main">
+                    <h4>{{item.name}}</h4>
+                    <h4>{{item.quantity}}</h4>
+                    <h4>{{item.price}}</h4>
+                    <h4>{{item.discription}}</h4>
+                    <h4>{{item.comments}}</h4>
+                    <h4>{{item.category}}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
