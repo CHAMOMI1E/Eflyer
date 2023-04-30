@@ -1,0 +1,388 @@
+{% extends 'for_salesmans.html' %}
+{% block sale %}
+{% load static %}
+<style>
+    .seven-title {
+        width: 474px;
+        height: 81px;
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+        padding-top: 79px;
+    }
+
+    .user_name {
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .comments-list .media {
+        border-bottom: 1px dotted #ccc;
+    }
+
+    .fourth_recs {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 30px;
+        width: 1048px;
+        height: 244px;
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+        padding-top: 80px;
+    }
+
+    .fourth_rec1 {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 30px 35px;
+        width: 327px;
+        height: 244px;
+        background: #FFFFFF;
+        border: 1px solid #DEDEDE;
+        border-radius: 5px;
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+    }
+
+    .fourth_rec1_wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0px;
+        gap: 20px;
+        width: 257px;
+        height: 184px;
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+    }
+
+    .fourth_text {
+        width: 234px;
+        height: 72px;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: 0.2px;
+        color: #737373;
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+    }
+
+    .fourth_last {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0px;
+        width: 160px;
+        height: 50px;
+        flex: none;
+        order: 2;
+        flex-grow: 0;
+    }
+
+    .fourth_last1 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0px;
+        gap: 15px;
+        width: 150px;
+        height: 50px;
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+    }
+
+    .fourth_last2 {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0px;
+        width: 95px;
+        height: 48px;
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+    }
+
+    .fourth_link {
+        width: 95px;
+        height: 24px;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: 0.2px;
+        color: #FFA62B;
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+        text-decoration: none;
+        margin-left: -80px;
+    }
+
+    .fourth_last_text {
+        width: 67px;
+        height: 24px;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: 0.2px;
+        color: #252B42;
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+        margin-left: -80px;
+    }
+
+    .fourth_link:hover, .fourth_link:focus, .fourth_link:active {
+        opacity: 0.75;
+    }
+
+    .seven_title {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center;
+        letter-spacing: 0.1px;
+        color: #252B42;
+        width: 90px;
+        height: 24px;
+        margin-left: 45px;
+    }
+
+    .seven_subtitle {
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 57px;
+        text-align: center;
+        letter-spacing: 0.2px;
+        color: #252B42;
+        width: 474px;
+    }
+
+    .seven-form {
+        margin-left: 45px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        width: 602px;
+        height: 280px;
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+        padding-top: 140px;
+    }
+
+    .seven-first {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0px;
+        gap: 20px;
+        width: 597px;
+        height: 50px;
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+    }
+
+    .seven-second {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0px;
+        gap: 20px;
+        width: 598px;
+        height: 50px;
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+    }
+
+    .seven-third {
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0px;
+        gap: 20px;
+        width: 598px;
+        height: 140px;
+        background: #F9F9F9;
+        border: 1px solid #BDBDBD;
+        border-radius: 5px;
+        flex: none;
+        order: 2;
+        flex-grow: 0;
+    }
+
+    .seven-button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0px 40px;
+        gap: 10px;
+        width: 224px;
+        height: 58px;
+        border-radius: 5px;
+        flex: none;
+        order: 2;
+        flex-grow: 0;
+        margin-left: 25px;
+    }
+
+    .seven-third textarea {
+        width: 598px;
+        height: 140px;
+    }
+
+    .input-text {
+        width: 598px;
+        height: 140px;
+    }
+
+    .seven_but_text {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 28px;
+        text-align: center;
+        letter-spacing: 0.2px;
+        color: #FFFFFF;
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+    }
+
+    .seven_but {
+        margin-top: 100px;
+        margin-left: 45px;
+        padding: 15px 40px;
+        gap: 10px;
+        width: 224px;
+        height: 58px;
+        background: #FFA62B;
+        border-radius: 5px;
+        border: 1px solid #BDBDBD;
+    }
+
+    .second_card {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 30px 50px;
+        gap: 5px;
+        width: 328px;
+        height: 253px;
+        background: #FFFFFF;
+        border: 1px solid #A9D6FF;
+        border-radius: 11px;
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+    }
+
+    .list-text1 {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: 0.2px;
+        color: #737373;
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+        margin-bottom: 5px;
+    }
+
+    .fourth_last1 {
+        /*margin-left: 400px;*/
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        height: 400px;
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+        /*background-color: red;*/
+    }
+
+
+</style>
+<!--<div class="fashion_section_2">-->
+<!--    <div class="row">-->
+<!--        <div class="col-lg-4 col-sm-4">-->
+<!--            <div class="box_main">-->
+<!--                <div class="tshirt_img"><img src="{% static 'images/tshirt-img.png' %}"></div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-lg-4 col-sm-4">-->
+<!--            <div class="box_main">-->
+<!--                <div class="box_main">-->
+<!--                    <h4>{{item.name}}</h4>-->
+<!--                    <h4>{{item.quantity}}</h4>-->
+<!--                    <h4>{{item.price}}</h4>-->
+<!--                    <h4>{{item.discription}}</h4>-->
+<!--                    <h4>{{item.comments}}</h4>-->
+<!--                    <h4>{{item.category}}</h4>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<div class="conteiner">
+    <div style="
+width: 100%;
+height: 500px;
+     display: flex;
+flex-direction: column;
+align-items: center;
+order: 0">
+        <div class="fourth_last1">
+            <img src="{% static 'images/tshirt-img.png' %}">
+            <div class="second_card">
+                <ul>
+                    <li class="list-text1">- The best products start
+                        with Figma
+                    </li>
+                    <li class="list-text1">- Design with real data</li>
+                    <li class="list-text1">- Lightning fast prototyping</li>
+                    <li class="list-text1">- Fastest way to organize</li>
+                    <li class="list-text1">- Work at the speed of thought.</li>
+                    <li class="list-text1"><a href="#" class="second_link">Learn More</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="conteiner">
+        <div class="seven-title">
+            <h2 class="seven_title">
+                Contact Us
+            </h2>
+            <h3 class="seven_subtitle">
+                Make an Appointment
+            </h3>
+        </div>
+        <div class="seven-form">
+            <div class="seven-first">
+                <input type="text" placeholder="Тема">
+                <input type="number" placeholder="Оценка">
+            </div>
+            <div class="seven-third">
+                <textarea placeholder="Комментарий"></textarea>
+
+            </div>
+        </div>
+        <div class="seven-button">
+            <button class="seven_but seven_but_text">Book Appointment</button>
+        </div>
+    </div>
+</div>
+{% endblock %}
