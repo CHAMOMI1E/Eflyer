@@ -119,14 +119,17 @@
                 <!--                  </div>-->
                 <div class="main">
                     <!-- Another variation with a button -->
+
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search this blog">
-                        <div class="input-group-append">
-                            <button class="btn btn-secondary" type="button"
-                                    style="background-color: #f26522; border-color:#f26522 ">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </div>
+                        <form action="{% url 'search' %}">
+                            <input type="text" name="search_name" class="form-control" placeholder="Search this blog">
+                            <div class="input-group-append">
+                                <button class="btn btn-secondary" type="submit"
+                                        style="background-color: #f26522; border-color:#f26522 ">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div class="header_box">

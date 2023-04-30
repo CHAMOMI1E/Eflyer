@@ -42,6 +42,10 @@ def show_item(request, item_id):
     return render(request, 'item.html', {'item': item})
 
 
+def show_comments(requset):
+    return render(requset, "comments.html")
+
+
 class add_item(FormView):
     template_name = 'crispy.html'
     form_class = ItemForm
@@ -82,9 +86,25 @@ class LoginUser(LoginView):
         return reverse_lazy("main")
 
 
+class Search(ListView):
+    model = Item
+    template_name = 'search_result.html'
+    context_object_name = 'items'
+
+    def get_queryset(self):
+        query = self.request.GET.get('search_name')
+        object_list = Item.objects.filter(name=query)
+        return object_list
+
+
+class All_items(ListView):
+    model = Item
+    template_name = 'search_result.html'
+    context_object_name = 'items'
+
 class RegisterUser(CreateView):
     form_class = UserCreationForm
-    template_name = "crispy.html"
+    template_name = "login2.html"
     success_url = reverse_lazy("login")
 
     def form_valid(self, form):
@@ -99,6 +119,9 @@ class RegisterUser(CreateView):
         new_user = Users(id_user=user, basket=new_basket)
         new_user.save()
         return redirect('main')
+
+    def form_invalid(self, form):
+        raise ValueError
         # return redirect('add_user')
 
 

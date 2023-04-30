@@ -14,4 +14,7 @@ urlpatterns = [
     path('RegisterSalesman/', RegisterSalesman.as_view(), name='RegisterSalesman'),
     path('for_salesman/', for_salesman.as_view(), name='for_salesman'),
     path('for_salesman/<int:item_id>/', show_item, name="show_item"),
+    path('show_comments/', show_comments, name='show_comments'),
+    path('search/', Search.as_view(), name='search'),
+    path('all_items/', All_items.as_view(), name='all_items'),
 ]

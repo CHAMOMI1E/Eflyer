@@ -1,0 +1,30 @@
+{% extends 'base.html' %}{% load static %}
+{% block content %}
+
+<div class="main-container">
+    <div class="fashion_section_2">
+        <div class="row">
+
+            {% for item in items %}
+            <div class="col-lg-4 col-sm-4">
+                <div class="box_main">
+                    <h4 class="shirt_text">{{item.name}}</h4>
+                    <p class="price_text">Price <span style="color: #262626;">$ {{item.price}}</span></p>
+                    <div class="tshirt_img"><img src="{% static 'images/tshirt-img.png' %}"></div>
+                    <div class="btn_main">
+
+                    </div>
+                    <h4 class="shirt_text"></h4>
+                    <div class="btn_main">
+                        <div class="seemore_bt"><a href="{% url 'show_item' item.pk %}">See More</a></div>
+                    </div>
+                </div>
+            </div>
+                {% endfor %}
+
+
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
