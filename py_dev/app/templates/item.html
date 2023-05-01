@@ -1,5 +1,5 @@
-{% extends 'for_salesmans.html' %}
-{% block sale %}
+{% extends 'base.html' %}
+{% block content %}
 {% load static %}
 <style>
     .seven-title {
@@ -346,28 +346,22 @@ flex-direction: column;
 align-items: center;
 order: 0">
         <div class="fourth_last1">
-            <img src="{% static 'images/tshirt-img.png' %}">
+            <img src="{{item.photo}}">
             <div class="second_card">
                 <ul>
-                    <li class="list-text1">- The best products start
-                        with Figma
-                    </li>
-                    <li class="list-text1">- Design with real data</li>
-                    <li class="list-text1">- Lightning fast prototyping</li>
-                    <li class="list-text1">- Fastest way to organize</li>
-                    <li class="list-text1">- Work at the speed of thought.</li>
-                    <li class="list-text1"><a href="#" class="second_link">Learn More</a></li>
+                    <li class="list-text1">name:{{item.name}}</li>
+                    <li class="list-text1">quantity:{{item.quantity}}</li>
+                    <li class="list-text1">price:{{item.price}}</li>
+                    <li class="list-text1">discription:{{item.discription}}</li>
+                    <li class="list-text1">category:{{item.category}}</li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="conteiner">
         <div class="seven-title">
-            <h2 class="seven_title">
-                Contact Us
-            </h2>
             <h3 class="seven_subtitle">
-                Make an Appointment
+                Comment
             </h3>
         </div>
         <div class="seven-form">

@@ -43,6 +43,7 @@ class Item(models.Model):
     discription = models.CharField(max_length=100, null=True)
     comments = models.ForeignKey(Comments, on_delete=models.CASCADE, null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
+    photo = models.ImageField(upload_to='items_photo', null=True)
 
     def __str__(self):
         return self.name
