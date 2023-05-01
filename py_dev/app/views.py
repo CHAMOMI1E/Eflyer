@@ -17,6 +17,7 @@ def main(request):
     return render(request, 'search_result.html', {"items": items})
 
 
+
 @permission_required('user.change_user', login_url='../../app/login')
 def user(request):
     usernames = request.user.id
